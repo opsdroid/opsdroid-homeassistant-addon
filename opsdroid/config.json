@@ -1,0 +1,54 @@
+{
+    "arch": [
+        "amd64"
+    ],
+    "auth_api": false,
+    "boot": "auto",
+    "description": "Python automation framework with natural language support",
+    "hassio_api": false,
+    "hassio_role": "default",
+    "homeassistant_api": true,
+    "host_network": false,
+    "ingress": true,
+    "ingress_port": 8080,
+    "map": [
+        "ssl:ro",
+        "config:rw",
+        "share:rw"
+    ],
+    "name": "Opsdroid",
+    "options": {
+      "welcome-message": true,
+      "logging": {
+        "level": "info"
+      },
+      "connectors": {
+        "websocket": {},
+        "homeassistant": {
+          "url": "http://supervisor/core/",
+          "token": "$SUPERVISOR_TOKEN"
+        }
+      },
+      "databases": {
+        "sqlite": {
+          "file": "/config/opsdroid/opsdroid.db"
+        }
+      },
+      "skills": {
+        "example": {
+          "path": "/config/opsdroid/skills/example_skill"
+        }
+      }
+    },
+    "ports": {
+        "8080/tcp": 8080
+    },
+    "ports_description": {
+        "8080/tcp": "API"
+    },
+    "schema": false,
+    "slug": "opsdroid",
+    "startup": "application",
+    "url": "https://opsdroid.dev/",
+    "version": "0.1.13"
+}
